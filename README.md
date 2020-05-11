@@ -1,4 +1,4 @@
-xxxzxzxzxzxxxxxxxxxxxxxxxxxxxxxxBasic Concepts
+Basic Concepts
 Supervised Learning
 LMS
 Logistic regression
