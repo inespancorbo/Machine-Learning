@@ -4,7 +4,7 @@
 
 
 # NumPy
-
+- Reading csv files to numpy arrays: np.genfromtxt("./path/to/file", delimiter=",")
 
 
 
