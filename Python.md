@@ -30,7 +30,7 @@
 ### from scipy.spatial import distances
 - Distance functions between two numeric vectors u and v:
   - euclidean/sqeuclidean distance: computes the Euclidean/Euclidean squared distance between two 1-D arrays.
-  - chebyshev distance: computes the Chebyshev distance between two 1-D arrays u and v, which is defined as max<sub>i</sub> |u<sub>i</sub> x - v<sub>i</sub>|.
+  - chebyshev distance: computes the Chebyshev distance between two 1-D arrays u and v, which is defined as max<sub>i</sub> |u<sub>i</sub> - v<sub>i</sub>|.
   - minkowski distance: think real analysis l^p, p-norm.
   - cosine distance (1 - cos angle formed by u and v), correlation distance (1 - correlation between u and v, etc.
 - Distance matrix computation from a collection of raw observation vectors stored in a rectangular array (note you could also broadcast, might be painful):
