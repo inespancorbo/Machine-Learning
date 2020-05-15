@@ -30,9 +30,10 @@
 ### from scipy.spatial import distances
 - Useful distance computations:
   - euclidean distance: computes the Euclidean distance between two 1-D arrays
-  - chebyshev distance: computes the Chebyshev distance between two 1-D arrays $u$ and $v$, which is defined as $\max{i}|u_i-v_i|$
+  - chebyshev distance: computes the Chebyshev distance between two 1-D arrays u and v, which is defined as $\max{i}|u_i-v_i|$
   - minkowski distance: 
-  - h<sub>&theta;</sub>(x) = &theta;<sub>o</sub> x + &theta;<sub>1</sub>x
+  max<sub>i</sub> |u;<sub>i</sub> x - v;<sub>i</sub>|
+
 
 
 
