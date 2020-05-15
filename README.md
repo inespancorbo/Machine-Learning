@@ -1,4 +1,4 @@
-# Machine Leanring
+# Machine Learning
 - Basic Concepts
 - Supervised Learning
   - LMS
