@@ -33,7 +33,8 @@
   - chebyshev distance: computes the Chebyshev distance between two 1-D arrays u and v, which is defined as max<sub>i</sub> |u<sub>i</sub> x - v<sub>i</sub>|.
   - minkowski distance: think real analysis l^p, p-norm.
   - cosine distance (1 - cos angle formed by u and v), correlation distance (1 - correlation between u and v, etc.
- - Distance matrix computation from a collection of raw observation vectors stored in a rectangular array:
+- Distance matrix computation from a collection of raw observation vectors stored in a rectangular array:
+* Note you could also broadcast, might be painful.
   - pdist(X[, metric]): Pairwise distances between observations in n-dimensional space.
   - cdist(XA, XB[, metric]): Compute distance between each pair of the two collections of inputs.
 
