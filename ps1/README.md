@@ -2,7 +2,7 @@
 ## Setup for Written Parts
 - Use an editor with built-in typesetting such as  TeXMaker or TeXShop
 ## Setup for Coding Parts
-1. Install [Miniconda](https://conda.io/docs/user-guide/install/index.html#regular-installation)
+1. Install [Miniconda](https://conda.io/docs/user-guide/install/index.html#regular-installation) or Anaconda.
 2. cd into src, run `conda env create -f environment.yml`
   - This creates a Conda environment called `cs229`
 3. Run `source activate cs229`
