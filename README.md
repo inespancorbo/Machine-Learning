@@ -5,6 +5,7 @@
   - Logistic regression
   - Perceptron
   - Exponential family
+    - Generalized Linear Models (Poisson Regression)
   - Generative learning algorithms
   - Gaussian discriminant analysis
   - Naive Bayes
