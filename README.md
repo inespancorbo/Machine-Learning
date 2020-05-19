@@ -1,6 +1,6 @@
 # Machine Learning
 - Basic Concepts
-- Supervised Learning [pdf](https://github.com/SKKSaikia/CS229_ML/blob/master/doc/NOTES/section_notes/1%20-%20cs229-linalg.pdf)
+- Supervised Learning [Notes 1](https://github.com/inespancorbo/Machine-Learning/blob/master/Notes/Notes1.pdf) [Notes 2](https://github.com/inespancorbo/Machine-Learning/blob/master/Notes/Notes2.pdf)
   - LMS
   - Logistic regression
   - Perceptron
