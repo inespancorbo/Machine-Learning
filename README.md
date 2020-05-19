@@ -47,6 +47,7 @@
 - [Linear Algebra](https://github.com/inespancorbo/Machine-Learning/blob/master/Notes/linalg_review.pdf)
 - [Probability](https://github.com/inespancorbo/Machine-Learning/blob/master/Notes/prob_review.pdf)
 - [Gaussians I, ](https://github.com/inespancorbo/Machine-Learning/blob/master/Notes/gaussians.pdf)[Gaussians II](https://github.com/inespancorbo/Machine-Learning/blob/master/Notes/more_on_gaussians.pdf)
+- [Statistics Cases Listing](https://github.com/inespancorbo/Machine-Learning/blob/master/Notes/examples_statistics.pdf)
 ---
 ### Problem Sets
 - [Problem Set 1](https://github.com/inespancorbo/Machine-Learning/tree/master/ps1)
