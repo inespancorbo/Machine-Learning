@@ -13,7 +13,7 @@
 # Pandas
 
 
-# Scikit-learn
+# [Scikit-learn](https://scikit-learn.org/stable/)
 
 
 # SciPy
