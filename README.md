@@ -12,7 +12,7 @@
   - Gaussian discriminant analysis
   - Naive Bayes
   - Support vector machines
-  - Model selection and feature selection
+  - Model selection and calibration, feature selection
   - Ensemble methods: Bagging, boosting, ECOC
 - Learning theory
   - Bias/variance tradeoff
