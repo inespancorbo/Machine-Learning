@@ -1,0 +1,133 @@
+---
+title: "Cases - Study for Exam 1"
+author: "Ines Pancorbo"
+output: pdf_document
+---
+\pagenumbering{gobble}
+```{r setup, include=FALSE, warning = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+\newpage
+__Case 1: Find and discuss an example of improving an estimator using Rao-Blackwell.__
+
+The Rao-Blackwell Theorem states that if $W$ is any unbiased estimator of $\tau(\theta),$ and $T$ is any sufficient statistic for $\theta$ then $\mathbb{E}(W|T)$ is a uniformly better unbiased estimator of $\tau(\theta),$ i.e., $\mathbb{E}(\mathbb{E}(W|T))=\tau(\theta)$ and $\text{Var}(\mathbb{E}(W|T)) \leq \text{Var}(W)$ for all $\theta$.
+
+Let $\mu > 0$ be a parameter. Consider $X_1, X_2, \ldots, X_n$ i.i.d $\text{Poisson}(\mu).$
+
+Consider the unbiased estimator of $\mu$, $X_1$ (note: $\mathbb{E}(X_1)=\mu$). We can improve this estimator using the Rao-Blackwell Theorem by finding a sufficient statistic, $T$, for $\mu$ and then considering the statistic $\mathbb{E}(X_1|T).$
+
+The poisson distribution belongs to the family of exponential distributions. To show this notice,
+$$f(x|\mu)=\frac{e^{-\mu}\mu^{x}}{x!}\mathbf{1}(x)_{\{0,1,2,\dots\}}=e^{-\mu}(\frac{1}{x!}\mathbf{1}(x)_{\{0,1,2,\dots\}})\mu^{x}=e^{-\mu}(\frac{1}{x!}\mathbf{1}(x)_{\{0,1,2,\dots\}})e^{ln(\mu)x}$$
+And so the density is given by,
+$$h(x)=\frac{1}{x!}\mathbf{1}(x)_{\{0,1,2,\dots\}},~~c(\mu)=e^{-\mu},~~\text{and}~~e^{w_1(\mu)t_1(x)}=e^{\ln(\mu)x}$$
+This implies, by Theorem $6.2.10$ of Casella and Berger, that 
+$\displaystyle \sum_{i=1}^{n}t_1(X_i)=\displaystyle \sum_{i=1}^{n}X_i$ is a sufficient statistic for $\mu.$ So let $T=\displaystyle \sum_{i=1}^{n}X_i.$
+
+Now let us consider,
+$$\mathbb{E}(X_1|T)=\mathbb{E}(X_1|\displaystyle \sum_{i=1}^{n}X_i=t)$$ 
+and find a simpler expression for this statistic. 
+
+Notice that $$\mathbb{E}(\displaystyle \sum_{i=1}^{n}X_i|\displaystyle \sum_{i=1}^{n}X_i=t)=t$$
+and that $$t=\mathbb{E}(\displaystyle \sum_{i=1}^{n}X_i|\displaystyle \sum_{i=1}^{n}X_i=t)=\displaystyle \sum_{i=1}^{n}\mathbb{E}(X_i|\displaystyle \sum_{i=1}^{n}X_i=t)$$
+by linearity properties of expectation. 
+
+Further, because $X_1, X_2, \ldots, X_n$ are iid,  
+$$\displaystyle \sum_{i=1}^{n}\mathbb{E}(X_i|\displaystyle \sum_{i=1}^{n}X_i=t)=t \implies \mathbb{E}(X_i|\displaystyle \sum_{i=1}^{n}X_i=t)=\frac{t}{n}.$$
+And so $\mathbb{E}(X_1|T)=\frac{T}{n}=\bar{X}.$ So $\bar{X}$ is a uniformly better unbiased estimator of $\mu$ than $X_1,$ in the sense that both are unbiased,
+$$\mathbb{E}(\bar{X})=\mu=\mathbb{E}(X_1)$$
+but, 
+$$\text{Var}(\bar{X})=\frac{\mu}{n} \le \mu = \text{Var}(X_1).$$
+
+Just as an aside note: This example can be a bit circular if we choose a sample size of $1$, i.e., we let $n = 1$. If so, $T = X_1$ and by Rao-Blackwell we will just get back the same estimator, $X_1$.
+\newpage
+__Case 2: Find and discuss an example of a sufficient statistic that is not complete__
+
+Let $\theta > 0$ be a parameter. Let $X_1, X_2, \ldots, X_n$ i.i.d $\text{Uniform}[-\theta, 2\theta].$ So the density of $X_i$ is, 
+$$f_{X_i}(x_i) = \frac{1}{3\theta}\mathbf1(x_i)_{[-\theta,2\theta]}$$
+This is a case in which the statistic $(X_{(1)}, X_{(n)})$ although sufficient for $\theta$ is not complete.  
+Let us show that it is sufficient for $\theta$ using the Factorization Theorem:
+$$f(\underline{x}|\theta)=\displaystyle \prod_{i=1}^{n}\frac{1}{3\theta}\mathbf{1}(x_i)_{[-\theta, 2\theta]}=\frac{1}{(3\theta)^n}\displaystyle \prod_{i=1}^{n}\mathbf{1}(x_i)_{[-\theta, 2\theta]}=\frac{1}{(3\theta)^n}\mathbf{1}(x_{(1)})_{[-\theta, \infty)}\mathbf{1}(x_{(n)})_{(-\infty, 2\theta]}$$
+And so by letting,
+$$h(x)=1,~\text{and}~g((X_{(1)}, X_{(n)})|\theta)=\frac{1}{(3\theta)^n}\mathbf{1}(x_{(1)})_{[-\theta, \infty)}\mathbf{1}(x_{(n)})_{(-\infty, 2\theta]}$$
+we have that $(X_{(1)}, X_{(n)})$ is a sufficient statistic for $\theta.$
+
+Now let us show $(X_{(1)}, X_{(n)})$ is not complete. We can show this by considering an interesting statistic given our random sample: $T=\max\left(-X_{(1)},\frac{X_{(n)}}{2}\right).$ 
+
+$T$ is sufficient for $\theta$ as well by the Factorization Theorem,
+
+$$f(\underline{x}|\theta)=\displaystyle \prod_{i=1}^{n}\frac{1}{3\theta}\mathbf{1}(x_i)_{[-\theta, 2\theta]}=\frac{1}{(3\theta)^n}\displaystyle \prod_{i=1}^{n}\mathbf{1}(x_i)_{[-\theta, 2\theta]}=\frac{1}{(3\theta)^n}\mathbf{1}(\theta)_{[\max(-x_{(1)},\frac{x_{(n)}}{2}), ~\infty)}$$
+since
+
+$$-\theta \leq x_i \leq 2\theta~~\implies~~-\theta \leq x_{(1)} \leq \cdots \leq x_{(n)} \leq 2\theta~~\implies \theta \geq -x_{(1)}, ~\theta\geq \frac{x_{(n)}}{2}$$
+Let us find the distribution of $T$.
+
+For $0 \leq t \leq \theta$, we have
+$$P(T\le t)=P(-t\le X_{(1)},X_{(n)}\le 2t)
+=P(-t\le X_1,X_2,\ldots,X_n\le 2t)
+=(P(-t<X_1<2t))^n
+=(\frac{t}{\theta})^n$$
+
+So $T$ has density,
+$$f_T(t)=\frac{nt^{n-1}}{\theta^n}\mathbf1(t)_{[0,\theta]}$$
+This means $T$ is distributed as $Y_{(n)}$ where $Y_1,\ldots,Y_n$ are i.i.d $\text{Uniform}[0,\theta]$ and studying the properties of $T$ as an estimator of $\theta$ reduces to studying the properties of $Y_{(n)}$. And we have shown in class that $Y_{(n)}$ is a complete statistic for $\theta$. Let us show it again:
+
+Let $g(Y_{(n)})$ be such that $E(g(Y_{(n)}))=0$ for every $\theta > 0$ and note that $E(g(Y_{n}))=n\theta^{-n}G(\theta)$, with
+$$G(\theta)=\int_0^\theta t^{n-1}g(t)dt.$$
+$G$ is differentiable almost everywhere and $G'(\theta)=\theta^{n-1}g(\theta)$. If $G(\theta)=0$ for every $\theta > 0$ then $G'=0$ and hence, $g=0$. So $Y_{(n)}$ is complete for $\theta$. This means that $T$ is complete for $\theta.$
+
+Further, since $T$ is sufficient and complete, it is minimally sufficient. Now noting that $T$ is a function of $(X_{(1)}, X_{(n)})$ it is clear that $(X_{(1)}, X_{(n)})$ is not minimally sufficient (by definition of minimally sufficient statistic). And consequently, $(X_{(1)}, X_{(n)})$ cannot be complete. 
+
+There are other ways to show $(X_{(1)}, X_{(n)})$ is not complete. However, doing it the way done above, by considering the statistic $T$, we get a bonus: We can notice that $T$ is not only complete and sufficient for $\theta,$ but also the MLE for $\theta$ and by Lehmann-Scheffe, $\frac{n+1}{n}T$ is the UMVUE of $\theta.$
+
+\newpage
+
+__Case 4: Find and discuss an example where the maximum likelihood estimator (MLE) does not exist__
+
+Let $\theta > 0$ be a parameter. Let $X_1, X_2, \ldots, X_n$ i.i.d $\text{Uniform}(0, \theta).$ So the density of $X_i$ is, 
+$$f_{X_i}(x_i) = \frac{1}{\theta}\mathbf1(x_i)_{(0,\theta)}$$
+Note,
+
+$$0 < x_i < \theta~~\implies~~0 < x_{(1)} \leq \cdots \leq x_{(n)} <\theta~~\implies \theta > x_{(n)}$$
+Let us try and find the MLE. Consider the likelihood function,
+$$L(\theta|\underline{x})=\displaystyle (\prod_{i=1}^{n} \frac{1}{\theta})\mathbf1(\theta)_{(x_{(n)},~\infty)}=\frac{1}{\theta^n}\mathbf1(\theta)_{(x_{(n)},~\infty)}$$
+Clearly, $L(\theta|\underline{x})$ is a strictly monotone decreasing function of $\theta$ defined on $(x_{(n)},~\infty)$. Clearly, the supremum of $L(\theta|\underline{x})$ is at $\theta=x_{(n)}$. Since $L(\theta|\underline{x})$ is not defined at $\theta=x_{(n)}$, it does not achieve a maximum value on $(x_{(n)},~\infty)$. Consequently, the MLE for $\theta$ does not exist for a random sample of uniform (continuous) random variables $X_i,~i=1,\ldots,n,$ with support $(0, \theta).$ 
+
+Takeaways from this example: According to Casella and Berger, maximum likelihood estimation consists in estimating parameters of a probability distribuion by maximizing the likelihood function so that under this model the data is most probable. The point in the paramater space that maximizes the likelihood function is called the MLE. 
+
+The idea of maximum likelihood is intuitive but can have a clear shortcoming as illustrated with the above example: The likelihood function must have a maximum. In the example given above, we were dealing with a strictly monotone decreasing continuous function defined on an open interval, and so, because of the non-compact support, it did not achieve its supremum (Extreme Value Theorem).
+\newpage
+
+
+__Case 7: Find and discuss an example where the estimator is consistent but not unbiased__
+
+Consider $X_1, X_2, \ldots, X_n$ i.i.d $N(\mu, \sigma^2),$ where both parameters are unknown, and consider estimation of $\sigma^2.$
+
+Consider the MLE for $\sigma^2.$ From example $0.0.4$ of the notes, we know it is,
+$$\hat{\sigma^2_n} = \frac{1}{n} \sum_{i=1}^n \left(X_i-\bar{X} \right)^2.$$
+We can show that $\hat{\sigma^2_n}$ is biased for $\sigma^2.$ Consider the sample variance i.e.,
+$$S_n^2 = \frac{1}{n-1} \sum_{i=1}^n \left(X_i-\bar{X} \right)^2$$
+
+Notice that $\hat{\sigma^2_n}=\frac{n-1}{n}S_n^2$ and we know $S_n^2$ is unbiased for $\sigma^2$ (showed in problem $5$ of HW $2$). 
+
+Then we have that,
+$$\mathbb{E}(\hat{\sigma^2_n})=\mathbb{E}(\frac{n-1}{n}S_n^2)=\frac{n-1}{n}\sigma^2.$$
+So $\mathbb{E}(\hat{\sigma^2_n}) \ne \sigma^2$ and so is a biased estimator of $\sigma^2.$
+
+Now, let us show that $\hat{\sigma^2_n}$ is consistent. Let us find the bias of $\hat{\sigma^2_n}$,
+$$\text{Bias}(\hat{\sigma^2_n})=\mathbb{E}(\hat{\sigma^2_n})-\sigma^2=\frac{n-1}{n}\sigma^2-\sigma^2=\sigma^2(1-\frac{1}{n}-1)=-\frac{\sigma^2}{n}.$$
+
+Now note,
+
+$$\lim_{n \to \infty}\text{Bias}(\hat{\sigma^2_n})=\lim_{n \to \infty}(-\frac{\sigma^2}{n})=0.$$
+Let us find the variance of $\hat{\sigma^2_n}$. 
+
+First note that $\frac{(n-1)S_n^2}{\sigma^2} \sim \chi^2_{n-1}$ as given in the lecture notes. This implies,
+$$\text{Var}(\frac{(n-1)S_n^2}{\sigma^2})=2(n-1) ~~\implies~~ \text{Var}(S_n^2)=\frac{2\sigma^4}{n-1}$$ 
+$$\text{Var}(\hat{\sigma^2_n})=\text{Var}(\frac{n-1}{n}S_n^2)=\frac{(n-1)^2}{n^2}\frac{2\sigma^4}{n-1}=\frac{2(n-1)\sigma^4}{n^2}$$
+And so,
+$$\lim_{n \to \infty}\text{Var}(\hat{\sigma^2_n})=\lim_{n \to \infty}(\frac{2(n-1)\sigma^4}{n^2})=0.$$
+And so, since $\text{Bias}(\hat{\sigma}^2_n) \to 0,~~\text{Var}(\hat{\sigma}^2_n) \to 0$ as $n \to 0$ we have that $\hat{\sigma}^2_n$ is consistent for $\sigma^2.$ Therefore, we have shown that $\hat{\sigma}^2_n$ is consistent but not unbiased.
+
+
+
+
