@@ -2,7 +2,7 @@
 
 ### Topics
 - Basic Concepts
-- Supervised Learning [Notes 1,](https://github.com/inespancorbo/Machine-Learning/blob/master/Notes/Notes1.pdf) [Notes 2](https://github.com/inespancorbo/Machine-Learning/blob/master/Notes/Notes2.pdf)
+- Supervised Learning [Notes 1,](https://github.com/inespancorbo/Machine-Learning/blob/master/Notes/Notes1.pdf) [Notes 2, ](https://github.com/inespancorbo/Machine-Learning/blob/master/Notes/Notes2.pdf) [Notes 3, ](https://github.com/inespancorbo/Machine-Learning/blob/master/Notes/Notes3.pdf) [Notes 4](https://github.com/inespancorbo/Machine-Learning/blob/master/Notes/Notes4.pdf)
   - LMS
   - Logistic regression
   - Perceptron
