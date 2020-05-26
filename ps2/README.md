@@ -1,4 +1,4 @@
-# CS229 Fall 2018 Problem Set #2
+# Problem Set #2
 
 
 ## Setup for Written Parts
