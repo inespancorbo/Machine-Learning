@@ -53,3 +53,6 @@
 ---
 ### Problem Sets
 - [Problem Set 1](https://github.com/inespancorbo/Machine-Learning/tree/master/ps1)
+- [Problem Set 2](https://github.com/inespancorbo/Machine-Learning/tree/master/ps2)
+- [Problem Set 3]()
+- [Problem Set 4]()
